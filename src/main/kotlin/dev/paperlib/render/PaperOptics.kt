@@ -34,9 +34,9 @@ internal data class Rgb(val red: Int, val green: Int, val blue: Int) {
 
     companion object {
         private fun lerp(from: Int, to: Int, amount: Double): Int =
-            clamp((from + (to - from) * amount).toInt())
+            (from + (to - from) * amount).coerceIn(0, 255)
 
-        private fun clamp(channel: Int): Int = channel.coerceIn(0, 255)
+        private fun clamp(channel: Double): Int = channel.toInt().coerceIn(0, 255)
     }
 
     fun toAnsiBackground(): String = "\u001B[48;2;$red;$green;${blue}m"

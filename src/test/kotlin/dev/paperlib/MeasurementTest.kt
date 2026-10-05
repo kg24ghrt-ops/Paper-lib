@@ -51,7 +51,8 @@ class MeasurementTest {
         val ream = PaperReam.of(PaperSheet.standard())
         assertEquals(500, ream.sheetCount)
         assertEquals(2494.8, ream.totalMass.value, absoluteTolerance = 0.5)
-        assertEquals(50.0, ream.stackHeight.value, absoluteTolerance = 0.01)
+        // 500 sheets at 100 µm is 50 mm of stack.
+        assertEquals(50.0, ream.stackHeight.toMillimetres(), absoluteTolerance = 0.01)
         assertEquals(31.185, ream.totalArea, absoluteTolerance = 0.001)
     }
 
