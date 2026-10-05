@@ -1,2 +1,8 @@
-# Google App Engine generated folder
-appengine-generated/
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+*.class
+.idea/
+*.iml
+.DS_Store
+.kotlin/
